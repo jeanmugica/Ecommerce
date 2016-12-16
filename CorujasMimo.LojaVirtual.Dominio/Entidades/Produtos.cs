@@ -10,8 +10,7 @@ namespace CorujasMimo.LojaVirtual.Dominio.Entidades
 {
     public class Produtos
     {
-        [Key]
-        [Column(Order = 0)]
+        [Key]        
         public int ProdutoId { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
