@@ -40,6 +40,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -82,13 +83,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CorujasMimo.LojaVirtual.Dominio\CorujasMimo.LojaVirtual.Dominio.csproj">
-      <Project>{ed200d6e-833d-44b7-94ef-80ed31f69b9c}</Project>
-      <Name>CorujasMimo.LojaVirtual.Dominio</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\CorujasMimo.LojaVirtual.Web\CorujasMimo.LojaVirtual.Web.csproj">
+      <Project>{3bc58acf-7376-4610-9829-5fadfdb7a841}</Project>
+      <Name>CorujasMimo.LojaVirtual.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

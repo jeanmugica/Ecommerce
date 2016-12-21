@@ -1,6 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using CorujasMimo.LojaVirtual.Web.HtmlHelpers;
+using CorujasMimo.LojaVirtual.Web.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
+using System.Web.Mvc;
+
 
 namespace CorujasMimo.LojaVirtual.UnitTest
 {
@@ -35,6 +39,37 @@ namespace CorujasMimo.LojaVirtual.UnitTest
 
             CollectionAssert.AreEqual(resultado.ToArray(), teste);
 
+        }
+
+        [TestMethod]
+        public void TestarSeAPaginacaoEstaSendoGeradaCorretamente()
+        {
+            //Arrange
+            HtmlHelper html = null;
+
+            Paginacao paginacao = new Paginacao
+            {
+                PaginaAtual = 1,
+
+                ItensPorPagina = 10,
+
+                ItensTotal = 28            
+            };
+            
+            Func<int,string> paginaUrl = i => "Pagina" + i;
+            
+            //Act
+            MvcHtmlString resultado = html.PageLinks(paginacao, paginaUrl);
+
+            //Assert
+            Assert.AreEqual(
+
+                    @"<a class=""btn btn-default"" href=""Pagina1"">1</a>"
+                + @"<a class=""btn btn-default btn-primary selected"" href=""Pagina2"">2</a>"
+                + @"<a class=""btn btn-default"" href=""Pagina3"">3</a>", resultado.ToString()
+
+                );
+            
         }
     }
 }
