@@ -49,10 +49,8 @@ namespace CorujasMimo.LojaVirtual.UnitTest
 
             Paginacao paginacao = new Paginacao
             {
-                PaginaAtual = 1,
-
+                PaginaAtual = 2,
                 ItensPorPagina = 10,
-
                 ItensTotal = 28            
             };
             

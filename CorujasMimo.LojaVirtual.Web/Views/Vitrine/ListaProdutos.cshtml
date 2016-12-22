@@ -1,59 +1,15 @@
-﻿@model IEnumerable<CorujasMimo.LojaVirtual.Dominio.Entidades.Produtos>
+﻿@using CorujasMimo.LojaVirtual.Web.HtmlHelpers
+@model CorujasMimo.LojaVirtual.Web.Models.ProdutosViewModel
 
-@{
-    Layout = null;
+
+@foreach (var p in Model.Produtos)
+{
+    <div>
+        <h3>@p.Nome</h3>
+        @p.Descricao
+        <h3>@p.Preco.ToString("c")</h3>
+
+    </div>
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListaProdutos</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos",new {pagina = x} ))
