@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace CorujasMimo.LojaVirtual.UnitTest
 {
     [TestClass]
-    public class UnitTestCorujasMimo
+    public class UnitTestCorujasMimo12
     {
         [TestMethod]
         public void Take()
