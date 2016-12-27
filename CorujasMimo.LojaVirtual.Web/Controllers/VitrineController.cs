@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using CorujasMimo.LojaVirtual.Dominio.Repositorio;
 using CorujasMimo.LojaVirtual.Web.Models;
@@ -22,9 +19,9 @@ namespace CorujasMimo.LojaVirtual.Web.Controllers
             ProdutosViewModel model = new ProdutosViewModel
             {
                 Produtos = _repositorio.Produtos
-                .Where(p => p.Categoria ==null || p.Categoria.Replace("  ", string.Empty) == categoria)
+                .Where(p => categoria == null || p.Categoria.TrimEnd() == categoria)
                 .OrderBy(p => p.Descricao)
-                .Skip((pagina - 1)*ProdutosPorPagina)
+                .Skip((pagina - 1) * ProdutosPorPagina)
                 .Take(ProdutosPorPagina),
 
 
