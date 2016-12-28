@@ -42,7 +42,9 @@ namespace CorujasMimo.LojaVirtual.Web
 
             //3
 
-            routes.MapRoute(null, "{categoria}", new
+            routes.MapRoute(null, 
+                "{categoria}", 
+                new
             {
                 controller = "Vitrine",
                 action = "ListaProdutos",
